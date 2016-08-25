@@ -10,3 +10,5 @@ push
 pull 
 
 clone
+
+init
