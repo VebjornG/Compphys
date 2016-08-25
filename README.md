@@ -13,3 +13,5 @@ clone
 
 init
 Nytt vedlegg
+
+mer tull
