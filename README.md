@@ -12,3 +12,4 @@ pull
 clone
 
 init
+Nytt vedlegg
