@@ -48,5 +48,4 @@ plt.ylabel('$u(x)$', fontsize = 20)
 plt.title('$Analytic$ $and$ $numerical$ $solution$ $of$ $u(x)$ $for$ $N = 1000$', fontsize = 20)
 
 plt.figure(1).set_tight_layout(True)
-plt.savefig('figure_1.png')
 plt.show()
