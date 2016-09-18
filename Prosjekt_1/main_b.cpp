@@ -10,9 +10,20 @@ using namespace std;
 
 
 // General solution with 8n flops
-double gen_solv(int n, double* v) {
 
-    // Declaration
+int main(int argc, char* argv[]) {
+
+    // Failtest for args
+    if (argc <= 2) {
+        cout << "Bad usage: " << argv[0] <<
+             "read also output file on same line." << endl;
+        exit(1);
+    }
+
+    // Declaring variables
+    int n = atoi(argv[2]); // second command line arg
+    double *v = new double[n+2];
+    int spacing = 15;
     double *a = new double[n+2];
     double *f = new double[n+2];
     double *x = new double[n+2];
@@ -49,30 +60,15 @@ double gen_solv(int n, double* v) {
     for (int i = n-1; i >= 1; i--) {
         v[i] = (f_tilde[i] - v[i+1]*c[i])/b_tilde[i];
     }
-int main(int argc, char* argv[]) {
-
-    // Failtest for args
-    if (argc <= 2) {
-        cout << "Bad usage: " << argv[0] <<
-             "read also output file on same line." << endl;
-        exit(1);
-    }
-
-    // Declaring variables
-    int n = atoi(argv[2]); // second command line arg
-    double *v = new double[n+2];
-    double *v_ = new double[n+2];
-    int spacing = 15;
 
     // Writing to file
     ofstream ofile;
     ofile.open((string(argv[1]) + "-" + string(argv[2]) + ".txt").c_str());
-    ofile << setw(spacing + 5) << setprecision(8) << "Time used gen_solv: " << t_general << endl;
-    ofile << setw(spacing + 5) << setprecision(8) << "Time used Special_solv: "<< t_special << endl;
-    ofile << "v:" << setw(spacing + 5) << "v_:" << endl;
+    ofile << "          x:" << setw(spacing + 5) << "          v:" << "          f_tilde:" << endl;
     for (int i = 0; i < n+2; i++) {
-        ofile << setw(spacing) << setprecision(8) << v[i];
-        ofile << setw(spacing + 5) << setprecision(8) << v_[i] << endl;
+        ofile << setw(spacing + 5) << setprecision(8) << v[i];
+        ofile << setw(spacing + 5) << setprecision(8) << x[i];
+        ofile << setw(spacing + 5) << setprecision(8) <<  f_tilde[i] << endl;
     }
 
     ofile.close();
