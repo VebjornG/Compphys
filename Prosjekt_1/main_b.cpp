@@ -64,10 +64,6 @@ int main(int argc, char* argv[]) {
     double *v_ = new double[n+2];
     int spacing = 15;
 
-    // Calling the solvers to write the times and v, v_ to file
-    double t_general = gen_solv(n, v);
-    double t_special = Special_solv(n, v_);
-
     // Writing to file
     ofstream ofile;
     ofile.open((string(argv[1]) + "-" + string(argv[2]) + ".txt").c_str());
